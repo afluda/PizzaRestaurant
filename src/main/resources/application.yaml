@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/PizzaRestaurant
+    password: ${DB_PASSWORD}
+  liquibase:
+    change-log: classpath:liquibase-changeLog.xml
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp@gmail.com
+    username: ${EMAIL}
+    password: ${PASSWORD}
+    port: '587'
+
+cors:
+  allowUrl: "*"
+server:
+  port: 3333
+
+

@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  database:
+    container_name: 'postgres'
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=dbtest
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+  app:
+    image: fluda/docker-test:v16
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    restart: always
+
+
